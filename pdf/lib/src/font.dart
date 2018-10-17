@@ -2,7 +2,7 @@
  * Copyright (C) 2017, David PHAM-VAN <dev.nfet.net@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General 
+ * modify it under the terms of the GNU Lesser General
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General  License for more details.
  *
- * You should have received a copy of the GNU Lesser General 
+ * You should have received a copy of the GNU Lesser General
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
@@ -32,8 +32,7 @@ class PDFFont extends PDFObject {
   /// @param type The pdf type, ie /Type1
   /// @param font The font name, ie Helvetica
   /// @param style The java.awt.Font style, ie: Font.PLAIN
-  PDFFont(PDFDocument pdfDocument,
-      {this.subtype = "/Type1", this.baseFont = "/Helvetica"})
+  PDFFont(PDFDocument pdfDocument, {this.subtype = "/Type1", this.baseFont = "/Helvetica"})
       : super(pdfDocument, "/Font") {
     pdfDocument.fonts.add(this);
   }
@@ -60,7 +59,7 @@ class PDFFont extends PDFObject {
   }
 
   PDFRect stringBounds(String s) {
-    var chars = latin1.encode(s);
+    var chars = encodeUtf16be(s);
 
     if (chars.length == 0) return const PDFRect(0.0, 0.0, 0.0, 0.0);
 
@@ -84,7 +83,7 @@ class PDFFont extends PDFObject {
   }
 
   PDFPoint stringSize(String s) {
-    var chars = latin1.encode(s);
+    var chars = encodeUtf16be(s);
 
     var w = 0.0;
     var h = 0.0;
