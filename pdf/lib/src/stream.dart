@@ -76,7 +76,7 @@ class PDFStream {
         .replaceAll('\f', '\\f')
         .replaceAll('\r', '\\r');
 
-    putBytes(utf8.encode('(' + s + ')'));
+    putBytes(encodeUtf16be('(' + s + ')', true));
   }
 
   static PDFStream text(String s) => new PDFStream()..putText(s);
