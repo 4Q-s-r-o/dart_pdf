@@ -76,7 +76,7 @@ class PDFStream {
         .replaceAll('\f', '\\f')
         .replaceAll('\r', '\\r');
 
-    putBytes(latin1.encode('(' + s + ')'));
+    putBytes(utf8.encode('(' + s + ')'));
   }
 
   static PDFStream text(String s) => new PDFStream()..putText(s);
@@ -107,8 +107,7 @@ class PDFStream {
     putString("[" + values.join(" ") + "]");
   }
 
-  static PDFStream array(List<PDFStream> values) =>
-      new PDFStream()..putArray(values);
+  static PDFStream array(List<PDFStream> values) => new PDFStream()..putArray(values);
 
   void putDictionary(Map<String, PDFStream> values) {
     putString("<< ");
