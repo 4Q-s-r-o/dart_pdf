@@ -321,6 +321,9 @@ orientation: $orientation''';
   }
 
   static String _getStringFromDB(ByteData buffer, int start, int length) {
+    if(lenght < 1){
+      return "";
+    }
     return utf8.decode(
         List<int>.generate(length, (int i) => buffer.getUint8(start + i)),
         allowMalformed: true);
