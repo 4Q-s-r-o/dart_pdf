@@ -321,7 +321,7 @@ orientation: $orientation''';
   }
 
   static String _getStringFromDB(ByteData buffer, int start, int length) {
-    if(lenght < 1){
+    if(length < 1){
       return "";
     }
     return utf8.decode(
