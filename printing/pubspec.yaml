@@ -26,7 +26,7 @@ dependencies:
     git:
       url: https://github.com/4Q-s-r-o/dart_pdf
       path: pdf
-      ref: 3.9.0-hotfix.1  # WE NEED TO USE THIS FORK
+      ref: 3.9.0-hotfix.2  # WE NEED TO USE THIS FORK
   plugin_platform_interface: ^2.0.0
 
 dev_dependencies:
